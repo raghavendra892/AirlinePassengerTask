@@ -1,0 +1,24 @@
+<mat-card class=" mb-4">
+    <mat-card-content>
+
+        <input type="text" #fullname [value]="passObj.fullname" 
+        [disabled]="!isEditable"
+        class="form-control mb-2">
+
+        <p>
+            <!-- check In Date : {{passObj.checkInDate ? ( passObj.checkInDate | date) : 'Not Checked In'}} -->
+            check In Date : {{ ( passObj.checkInDate | date) ?? 'Not Checked In'}}
+        </p>
+        <p>
+            <!-- Children : {{passObj.children ? passObj.children.length : 0}} -->
+            Children : {{passObj.children?.length ?? 0}}
+        </p>
+
+        <!-- <button class="btn btn-primary mr-2" *ngIf="!isEditable" (click)="isEditable = !isEditable">Edit</button> -->
+        <button mat-raised-button color="primary" class="mr-2" *ngIf="!isEditable" (click)="isEditable = !isEditable">Edit</button>
+        <!-- <button class="btn btn-primary mr-2" *ngIf="isEditable" (click)="onDone(fullname.value)">Done</button> -->
+        <button mat-raised-button color="primary" class="mr-2" *ngIf="isEditable" (click)="onDone(fullname.value)">Done</button>
+        <button mat-raised-button color="warn" (click)="onRemove()">Remove</button>
+        <!-- <button class="btn btn-primary" (click)="onRemove()">Remove</button> -->
+    </mat-card-content>
+</mat-card> 

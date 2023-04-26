@@ -1,0 +1,8 @@
+
+<app-passenger-count [totalPassengerCount]="passengerArray1.length" 
+[totalCheckedcount]="checkedInCount"></app-passenger-count>
+<!-- {{passengerArray1 | json}} -->
+<p *ngFor="let pass of passengerArray1">
+    {{pass.fullname}}
+</p>
+<app-passenger-details (emitpassInfo)="onRemoveUpdate($event)" [passObj]="pass" *ngFor="let pass of passengerArray1"></app-passenger-details>
